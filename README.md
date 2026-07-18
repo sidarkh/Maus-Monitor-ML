@@ -25,6 +25,20 @@ Oder öffne das Jupyter Notebook:
 jupyter notebook dss_analyse.ipynb
 ```
 
+## Entwicklungsphasen
+
+Das Projekt ist in folgende Phasen unterteilt und folgt einem strikten Git-Workflow:
+
+1. **Phase 01: Project Overview** – Einrichtung der Projektumgebung, Konfiguration von `.gitignore` und Abhängigkeiten.
+2. **Phase 02: Data Loading** – Einlesen der Rohdaten (`testdata.txt`).
+3. **Phase 03: Data Understanding** – Deskriptive Statistik und Datenstrukturierung.
+4. **Phase 04: Data Cleaning** – Datenbereinigung und Plausibilitätschecks.
+5. **Phase 05: Exploratory Data Analysis** – Gewichtsentwicklung und Aktivitätsmuster über die Zeit, Kruskal-Wallis-Tests.
+6. **Phase 06: Unsupervised Clustering** – Segmentierung der Belastungszustände mit K-Means ($k=3$).
+7. **Phase 07: Classification Modeling** – Feature-Skalierung und Training von ML-Klassifikatoren (Logistic Regression, SVM, Random Forest).
+8. **Phase 08: Model Evaluation** – Auswertung anhand von Confusion Matrix, Sensitivität/Spezifität und ROC-Kurven.
+9. **Phase 09: Ensemble Modeling** – Kombination der Modelle über einen Voting Classifier zur Robustheitsmaximierung.
+
 ## Ergebnisse
 
 ### Statistische Tests
@@ -45,3 +59,4 @@ jupyter notebook dss_analyse.ipynb
 ## Zusammenfassung
 
 Die Analyse zeigt klare dosisabhängige Effekte. Die Laufradaktivität reagiert früher als das Körpergewicht. Ein Classifier kann die Belastungskategorien mit hoher Genauigkeit vorhersagen.
+
