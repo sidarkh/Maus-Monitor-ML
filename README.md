@@ -1,62 +1,84 @@
-# DSS-Analyse Mausversuch
+# Maus-Monitor-ML: Wissenschaftlicher Machine-Learning-Kurs
 
-Statistische Auswertung und Machine Learning Klassifikation für DSS-induzierte Darmentzündung.
+Dieses Repository enthält ein vollständiges, wissenschaftlich fundiertes Machine-Learning-Forschungsprojekt zur Klassifikation und Analyse von DSS-induzierter Darmentzündung in einem Mausversuch. 
 
-## Dateien
+Das Projekt dient als umfassender, phasenbasierter Leitfaden, der alle Schritte von den biologischen und statistischen Grundlagen bis hin zu komplexen Ensemble-Modellen, Erklärbarkeit (SHAP/LIME) und statistischer Modellvalidierung in genau **30 aufeinander aufbauenden Jupyter Notebooks** dokumentiert.
 
-- `analyse.py` - Hauptskript mit allen Analysen
-- `dss_analyse.ipynb` - Jupyter Notebook Version
-- `zeitverlaeufe.png` - Gewicht und Aktivität über Zeit
-- `boxplots.png` - Vergleich der Dosisgruppen
-- `cluster_wahl.png` - Optimierung der Cluster-Anzahl
-- `clustering.png` - K-Means Ergebnisse
-- `confusion_matrix.png` - Classifier Performance
-- `decision_boundaries.png` - Entscheidungsgrenzen der Modelle
-- `roc_curves.png` - ROC-Kurven
+---
 
-## Verwendung
+## Biologischer Hintergrund und Datensatz
 
+Im Rahmen der Erforschung entzündlicher Darmerkrankungen (Colitis) erhalten Mäuse das Polysaccharid **Dextransulfat-Natrium (DSS)** über das Trinkwasser in drei verschiedenen Dosisgruppen:
+- **0** = Kontrollgruppe (0% DSS)
+- **1** = Niedrige Dosis (1.0% DSS)
+- **2** = Hohe Dosis (1.5% DSS)
+
+Über einen Verlauf von 14 Tagen (Tag 0 bis Tag 13) werden täglich zwei zentrale Variablen erhoben:
+1. **`bwc` (Body Weight Change)**: Die prozentuale Gewichtsänderung bezogen auf den Ausgangswert an Tag 0 ($BWC_{i,0} = 100.0\%$).
+2. **`vwr` (Voluntary Wheel Running)**: Die freiwillige Laufradaktivität in Radumdrehungen pro Minute (rpm) während der aktiven Nachtphase.
+
+Durch das Erreichen klinisch-ethischer Abbruchkriterien ( humane Endpunkte) werden schwer belastete Tiere vorzeitig euthanasiert. Dies führt zu strukturell fehlenden Werten (*Missing Not At Random*, MNAR), was eine besondere Herausforderung für die Datenvorverarbeitung darstellt.
+
+---
+
+## Struktur des 30-Phasen-Lehrplans
+
+Jedes Notebook ist wissenschaftlich aufgebaut und enthält: *Einführung, Lernziele, Theorie, mathematische Grundlagen, intuitive Erklärung, Python-Implementierung, Visualisierung, Interpretation, Zwischenfazit, Quizfragen, Zusammenfassung, Hausaufgabe und weiterführende Literatur*.
+
+### Übersicht der Notebooks:
+1. **[01_Project_Overview.ipynb](file:///Users/sidarkhalid/Downloads/Mäuse-Test-Daten/01_Project_Overview.ipynb)** – Biologische Grundlagen, Versuchsaufbau & Phasenstruktur.
+2. **02_Data_Loading.ipynb** – Datenimport, Tabulator-Trennung & Pandas-Grundlagen.
+3. **03_Data_Understanding.ipynb** – Strukturierte Dateninspektion & deskriptive Dimensionen.
+4. **04_Data_Cleaning.ipynb** – Handhabung von fehlenden Werten (MNAR) & Duplikatsprüfung.
+5. **05_Exploratory_Data_Analysis.ipynb** – Datenvisualisierung der Verläufe und Gruppenunterschiede.
+6. **06_Univariate_Statistics.ipynb** – Lage- und Streuungsmaße, Schiefe & Wölbung (Kurtosis).
+7. **07_Bivariate_Statistics.ipynb** – Korrelationsanalysen (Pearson, Spearman, Kendall).
+8. **08_Hypothesis_Testing.ipynb** – Parametrische und nicht-parametrische Gruppenvergleiche.
+9. **09_Time_Series_Analysis.ipynb** – Zeitreihenanalyse & Autokorrelationsstrukturen pro Tier.
+10. **10_Feature_Engineering.ipynb** – Rollierende Fenster, Differenzen & Akkumulationen.
+11. **11_Data_Preprocessing.ipynb** – Feature-Skalierung & Stratifizierter Train/Test-Split.
+12. **12_Clustering.ipynb** – Unüberwachte Segmentierung (K-Means, Hierarchisch, DBSCAN, GMM).
+13. **13_Cluster_Interpretation.ipynb** – Cluster-Validierung (Silhouette Score, Davies-Bouldin) & Profilierung.
+14. **14_Classification_Baseline.ipynb** – Dummy-Modelle als systemische Untergrenze.
+15. **15_Logistic_Regression.ipynb** – Mathematische Herleitung, Log-Loss-Funktion & Training.
+16. **16_Linear_Discriminant_Analysis.ipynb** – Bayes'sche Entscheidungstheorie & Diskriminanzanalysen.
+17. **17_KNearestNeighbors.ipynb** – Distanzbasierte Klassifikation & Hyperparameter $k$.
+18. **18_Support_Vector_Machine.ipynb** – Margin-Maximierung, Kernel-Trick & SVM-Klassifikation.
+19. **19_Decision_Tree.ipynb** – Entropie, Gini-Index & Pruning-Strategien.
+20. **20_Random_Forest.ipynb** – Bagging-Verfahren, Out-of-Bag Error & Feature Importance.
+21. **21_Gradient_Boosting.ipynb** – Boosting-Prinzipien & sequentielle Residuenminimierung.
+22. **22_XGBoost.ipynb** – Extremes Gradient Boosting & Regularisierungs-Terme.
+23. **23_Neural_Network.ipynb** – Künstliche Neuronale Netze (MLP) & Backpropagation.
+24. **24_Model_Comparison.ipynb** – Rigoroser Metrikvergleich (F1, AUC, MCC, Cohen's Kappa).
+25. **25_Hyperparameter_Tuning.ipynb** – Grid Search, Random Search & Bayes'sche Optimierung.
+26. **26_Final_Model.ipynb** – Das finale Gewinnermodell & Out-of-Sample-Validierung.
+27. **27_Model_Explainability.ipynb** – SHAP-Werte, Permutation Importance & LIME.
+28. **28_Statistical_Validation.ipynb** – Konfidenzintervalle der Metriken & McNemar-Test.
+29. **29_Final_Report.ipynb** – Wissenschaftliche Zusammenfassung & Diskussion der Entdeckungen.
+30. **30_Presentation.ipynb** – Folienpräsentation der Ergebnisse für Fachtagungen.
+
+---
+
+## Installation und Verwendung
+
+### 1. Conda-Umgebung erstellen (empfohlen):
 ```bash
-python analyse.py
+conda env create -f environment.yml
+conda activate maus-monitor-ml
 ```
 
-Oder öffne das Jupyter Notebook:
+### 2. Pip-Installation:
 ```bash
-jupyter notebook dss_analyse.ipynb
+pip install -r requirements.txt
 ```
 
-## Entwicklungsphasen
+### 3. Starten der Notebooks:
+```bash
+jupyter notebook
+```
 
-Das Projekt ist in folgende Phasen unterteilt und folgt einem strikten Git-Workflow:
+---
 
-1. **Phase 01: Project Overview** – Einrichtung der Projektumgebung, Konfiguration von `.gitignore` und Abhängigkeiten.
-2. **Phase 02: Data Loading** – Einlesen der Rohdaten (`testdata.txt`).
-3. **Phase 03: Data Understanding** – Deskriptive Statistik und Datenstrukturierung.
-4. **Phase 04: Data Cleaning** – Datenbereinigung und Plausibilitätschecks.
-5. **Phase 05: Exploratory Data Analysis** – Gewichtsentwicklung und Aktivitätsmuster über die Zeit, Kruskal-Wallis-Tests.
-6. **Phase 06: Unsupervised Clustering** – Segmentierung der Belastungszustände mit K-Means ($k=3$).
-7. **Phase 07: Classification Modeling** – Feature-Skalierung und Training von ML-Klassifikatoren (Logistic Regression, SVM, Random Forest).
-8. **Phase 08: Model Evaluation** – Auswertung anhand von Confusion Matrix, Sensitivität/Spezifität und ROC-Kurven.
-9. **Phase 09: Ensemble Modeling** – Kombination der Modelle über einen Voting Classifier zur Robustheitsmaximierung.
+## Lizenz
 
-## Ergebnisse
-
-### Statistische Tests
-- Tag 5: Signifikante Unterschiede (BWC p=0.003, VWR p=0.001)
-- Tag 8: Hochsignifikant (BWC p<0.001, VWR p<0.001)
-- Tag 13: Nur VWR noch signifikant (p=0.010)
-
-### Clustering
-- 3 Kategorien identifiziert: Gesund, Moderat, Schwer
-- Silhouette Score: 0.586
-
-### Classification
-- Bestes Modell: Logistic Regression
-- Accuracy: 99.4%
-- Sensitivity: 94-100%
-- Specificity: 99-100%
-
-## Zusammenfassung
-
-Die Analyse zeigt klare dosisabhängige Effekte. Die Laufradaktivität reagiert früher als das Körpergewicht. Ein Classifier kann die Belastungskategorien mit hoher Genauigkeit vorhersagen.
-
+Dieses Projekt ist unter der **MIT-Lizenz** lizenziert. Siehe die Datei `LICENSE` für Details.

@@ -14,10 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-07-18
 
 ### Added
-- **Phase 01: Project Overview**: Initialized project repository and established project structure.
-- **Phase 02: Data Loading**: Verifikation und Ausführung des Daten-Imports aus der Tab-getrennten Textdatei `testdata.txt`. Bestätigung der Datenstruktur (1980 Datenpunkte, 5 Spalten) und Tier-Identifikationsnummern (35 eindeutige Tiere).
-
-- Created `.gitignore` to prevent tracking of unnecessary IDE, virtual environment, and OS-specific files (e.g., `.DS_Store`, `__pycache__`).
-- Created `requirements.txt` containing the necessary Python libraries (`pandas`, `numpy`, `matplotlib`, `seaborn`, `scipy`, `scikit-learn`, `ipykernel`).
-- Created `CHANGELOG.md` to record development milestones.
-- Updated `README.md` to reflect the phasen-based development workflow.
+- **Phase 01: Project Overview**: Initialisierung des Projekts und Festlegung des neuen Lehrplans mit 30 dedizierten Notebooks.
+- Hinzufügen des ersten Notebooks: `01_Project_Overview.ipynb` mit allen geforderten wissenschaftlichen Abschnitten.
+- Hinzufügen der MIT-Lizenz (`LICENSE`).
+- Hinzufügen der Conda-Konfiguration (`environment.yml`).
+- Archivierung der alten Entwicklungsdateien (`analyse.py`, `dss_analyse.ipynb`, `ensemble_modellierung.ipynb`) im Ordner `archive/` zur Wahrung der Historie.
+- Aktualisierung von `README.md` und `requirements.txt` auf den neuen Projektstandard.
