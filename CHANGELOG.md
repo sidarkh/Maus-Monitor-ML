@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **Phase 01: Project Overview**: Initialisierung des Projekts und Festlegung des neuen Lehrplans mit 30 dedizierten Notebooks.
+- **Phase 02: Data Loading**: Erstellung und Ausführung des Notebooks `02_Data_Loading.ipynb`. Wissenschaftliche Erläuterung des Byte-gestützten TSV-Parsings, der mathematischen Matrixrepräsentation von Datensätzen und der spaltenorientierten Arbeitsspeicherrepräsentation von Pandas.
 - Hinzufügen des ersten Notebooks: `01_Project_Overview.ipynb` mit allen geforderten wissenschaftlichen Abschnitten.
 - Hinzufügen der MIT-Lizenz (`LICENSE`).
 - Hinzufügen der Conda-Konfiguration (`environment.yml`).
